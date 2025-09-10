@@ -1,0 +1,103 @@
+---
+layout: default
+title: Bread & Letters Blog
+---
+
+<!-- Hero Section -->
+<section class="bg-gray-50 border-b">
+  <div class="max-w-6xl mx-auto px-4 py-12 text-center">
+    <h1 class="text-4xl font-bold">Bread & Letters Blog</h1>
+    <p class="text-gray-700 mt-2 max-w-2xl mx-auto">
+      Practical skills for professionals — plus fresh perspectives on languages, history, and beyond.
+    </p>
+  </div>
+</section>
+
+<!-- Content -->
+<section class="max-w-6xl mx-auto px-4 py-12 grid md:grid-cols-[2fr,1fr] gap-10">
+  <!-- Main Feed -->
+  <div class="space-y-8">
+    <!-- Featured Post -->
+    {% assign featured = site.posts | first %}
+    {% if featured %}
+      <article class="border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
+        <a href="{{ featured.url }}">
+          {% if featured.thumbnail %}
+            <img src="{{ featured.thumbnail }}" alt="{{ featured.title }}" class="w-full h-56 object-cover">
+          {% endif %}
+          <div class="p-6">
+            <span class="text-xs text-teal-600 font-semibold uppercase">{{ featured.categories | join: ", " }}</span>
+            <h2 class="text-2xl font-bold mt-2">{{ featured.title }}</h2>
+            <p class="text-gray-600 mt-2">{{ featured.excerpt | strip_html | truncate: 180 }}</p>
+            <p class="text-xs text-gray-500 mt-3">{{ featured.date | date: "%B %-d, %Y" }}</p>
+          </div>
+        </a>
+      </article>
+    {% endif %}
+
+    <!-- Rest of the Posts -->
+    <div class="grid md:grid-cols-2 gap-6">
+      {% assign posts_list = site.posts | offset:1 %}
+      {% for post in posts_list %}
+        <article class="border rounded-lg overflow-hidden hover:shadow-md transition bg-white">
+          <a href="{{ post.url }}">
+            {% if post.thumbnail %}
+              <img src="{{ post.thumbnail }}" alt="{{ post.title }}" class="w-full h-40 object-cover">
+            {% endif %}
+            <div class="p-5">
+              <span class="text-xs text-gray-500 uppercase">{{ post.categories | join: ", " }}</span>
+              <h3 class="text-lg font-semibold mt-1">{{ post.title }}</h3>
+              <p class="text-gray-600 mt-2">{{ post.excerpt | strip_html | truncate: 120 }}</p>
+              <p class="text-xs text-gray-400 mt-2">{{ post.date | date: "%B %-d, %Y" }}</p>
+            </div>
+          </a>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Sidebar -->
+  <aside class="space-y-8">
+    <div>
+      <label class="text-sm font-medium">Search</label>
+      <input type="search" placeholder="Type to filter…" class="mt-2 w-full border rounded px-3 py-2" oninput="filterPosts(this.value)">
+    </div>
+
+    <div>
+      <h3 class="font-semibold mb-2">Categories</h3>
+      <ul class="space-y-2 text-sm text-gray-700">
+        <li><a href="/categories/career" class="hover:underline">Career</a></li>
+        <li><a href="/categories/excel" class="hover:underline">Excel</a></li>
+        <li><a href="/categories/powerbi" class="hover:underline">Power BI</a></li>
+        <li><a href="/categories/presentation" class="hover:underline">Presentation</a></li>
+        <li><a href="/categories/language" class="hover:underline">Languages</a></li>
+        <li><a href="/categories/history" class="hover:underline">History</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="font-semibold mb-2">Subscribe</h3>
+      <form action="#" method="post" class="flex gap-2">
+        <input type="email" placeholder="Your email" class="border rounded px-3 py-2 w-full" required>
+        <button class="px-4 py-2 rounded bg-teal-600 text-white">Join</button>
+      </form>
+    </div>
+
+    <div class="p-4 border rounded bg-teal-50">
+      <h3 class="font-semibold">Upcoming Class</h3>
+      <p class="text-sm text-gray-700 mt-1">Presentation Skills for APAC Clients</p>
+      <a href="https://academy.breadandletters.com" class="text-teal-700 text-sm font-medium underline mt-2 inline-block">Learn more →</a>
+    </div>
+  </aside>
+</section>
+
+<script>
+function filterPosts(q){
+  const cards=[...document.querySelectorAll('article')];
+  const s=q.toLowerCase();
+  cards.forEach(c=>{
+    const t=c.innerText.toLowerCase();
+    c.style.display=t.includes(s)?'block':'none';
+  });
+}
+</script>
