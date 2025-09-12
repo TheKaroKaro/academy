@@ -1,0 +1,39 @@
+# Site settings
+title: "Bread & Letters"
+email: "academy@breadandletters.com"
+description: "Practical skills for ambitious young professionals in South East Asia"
+baseurl: "" # the subpath of your site, e.g. "/blog"
+url: "https://breadandletters.com" # the base hostname & protocol for your site
+
+# Social media
+social:
+  linkedin: "https://linkedin.com/company/breadandletters"
+  instagram: "https://instagram.com/breadandletters"
+  twitter: "https://twitter.com/breadandletters"
+
+# Student count (for the hero section)
+student_count: "1,200+"
+
+# Testimonials
+testimonials:
+  - name: "Michael T."
+    position: "Business Analyst, Malaysia"
+    content: "The Excel class transformed how I work with data. I automated reports that used to take me hours, and my manager noticed immediately."
+  
+  - name: "Priya S."
+    position: "Marketing Executive, Singapore"
+    content: "I was terrified of presenting to our regional team. The presentation skills class gave me practical frameworks I could use immediately."
+  
+  - name: "Andi W."
+    position: "Project Coordinator, Indonesia"
+    content: "The workplace essentials class helped me understand how to communicate more effectively with colleagues from different cultures in our regional office."
+
+# Upcoming class
+upcoming_class:
+  title: "Presentation Skills for APAC Clients"
+  description: "Learn how to structure engaging presentations, handle Q&A sessions with confidence, and communicate effectively with international stakeholders across the Asia-Pacific region."
+  date: "June 28, 2023"
+  time: "7:00 PM GMT+8"
+  duration: "2 hours"
+  instructor: "Sarah Chen"
+  instructor_bio: "10+ years experience training professionals across SEA"
