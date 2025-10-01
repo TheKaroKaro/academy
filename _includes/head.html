@@ -3,19 +3,15 @@
 <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
 <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
 
-<!-- CSS -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
 
-<!-- Favicon -->
 <link rel="icon" href="{{ '/favicon.ico' | relative_url }}">
 
-<!-- SEO -->
 {% seo %}
 
-<!-- Schema.org markup -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -24,10 +20,19 @@
   "description": "Practical skills for ambitious young professionals in South East Asia",
   "url": "{{ site.url }}",
   "areaServed": "South East Asia",
-  "offers": {
-    "@type": "Service",
-    "serviceType": "Online courses",
-    "description": "Presentation skills, Excel training, and workplace essentials for young professionals"
-  }
+  "offers": [
+    {
+      "@type": "Service",
+      "serviceType": "Professional Upskill Courses",
+      "name": "Upskill Courses (Presentation, Excel, Workplace)",
+      "description": "Short, practical online classes on essential workplace skills like presentation, Excel training, and professional communication."
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Career Insights and Role Validation",
+      "name": "Career Insight Series",
+      "description": "Guest speaker sessions where industry professionals share day-to-day tasks and challenges of specific roles for career exploration."
+    }
+  ]
 }
 </script>
